@@ -1,0 +1,31 @@
+<div class="search">
+  <p class="text">Filter by keywords</p>
+  <div class="search-input">
+    <mat-icon>search</mat-icon>
+    <input type="text" class="text-input" placeholder="Type to search" />
+  </div>
+</div>
+<div>
+  <p>Results {{ posts.length }}</p>
+  <hr />
+</div>
+<div class="grid-main">
+  <mat-card class="card" *ngFor="let post of posts; let i = index">
+    <img mat-card-image src="{{ post.imageUrl }}" alt="{{ post.title }}" />
+    <mat-card-content>
+      <div class="card-date">
+        <mat-icon class="date-icon">calendar_today</mat-icon>
+        <p class="date-text">
+          {{ post.publishedAt | date: "longDate" }}
+        </p>
+      </div>
+      <mat-card-title class="card-title"> {{ post.title }}</mat-card-title>
+      <p class="card-content">
+        {{ post.summary }}
+      </p>
+      <div class="cards-link">
+        <a href="/post/1" class="card-link">Read more &#8594;</a>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
