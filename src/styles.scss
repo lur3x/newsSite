@@ -40,8 +40,12 @@ body {
 }
 body {
   margin: 0;
-  font-family: "Montserrat" ;
+  font-family: "Montserrat";
   font-style: normal;
   background: #e5e5e5;
   padding: 0 5rem;
+}
+mark {
+  background-color: #eeff00;
+  font-weight: bolder;
 }

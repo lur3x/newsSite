@@ -1,56 +1,40 @@
-<img src="../../../assets/unsplash_lI7dlA5VBp8.jpg" alt="" />
-<div class="post-page">
-  <h2 class="post-title">Title</h2>
-  <p class="post-content">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-    nostrum vero ipsum at nihil ullam ipsam maxime atque corporis suscipit,
-    veniam explicabo quisquam cum voluptas ratione unde dignissimos nobis
-    laudantium! Repellendus ut aspernatur eum in placeat magnam quisquam
-    accusamus laborum at fuga, quibusdam ipsa. Illo suscipit harum quos
-    architecto quaerat. Lorem ipsum dolor, sit amet consectetur adipisicing
-    elit. Distinctio blanditiis eveniet eius, voluptatibus optio nihil
-    asperiores dolorum eos suscipit sapiente facere exercitationem explicabo
-    ipsum, dolorem atque commodi vero facilis molestias id corrupti, molestiae
-    a. Laboriosam distinctio sequi, dolorum illum quasi vel accusamus eius
-    corrupti necessitatibus quod incidunt non minus voluptatem inventore,
-    tempora fuga ullam voluptatum quibusdam omnis. Molestiae dolore doloribus
-    consequuntur corrupti ullam, illo dolorum officia incidunt ipsam quam
-    quisquam quidem earum cupiditate vel, ratione hic! Beatae aut aliquid
-    ducimus! Recusandae eius tempore quasi hic maiores pariatur illum, nihil
-    commodi inventore, et, possimus aperiam ad aliquid? Sed inventore voluptatum
-    quam?Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum nostrum
-    laboriosam odio pariatur, reiciendis, ratione alias amet facilis fuga
-    placeat provident suscipit deleniti cumque odit officiis! Provident
-    accusamus sed vitae, qui deleniti quasi possimus voluptatem adipisci
-    officia, iure aliquam autem itaque deserunt fugit. Hic dolorem, vero ipsa
-    vitae reiciendis alias eum. Voluptates nulla ex vitae repudiandae asperiores
-    qui voluptate sed? Eligendi aut esse eum animi error libero illo asperiores
-    repellat optio, laboriosam dicta sapiente veritatis necessitatibus aliquid,
-    quaerat expedita quibusdam repellendus labore id laborum! Perferendis ipsa
-    repellendus a, natus, fugiat doloribus saepe corrupti aliquid, quasi
-    quisquam consequuntur accusamus consectetur architecto! Lorem ipsum dolor
-    sit amet consectetur adipisicing elit. Dolores mollitia et dolor magni
-    soluta libero? Reprehenderit sint aspernatur hic animi labore maxime
-    necessitatibus expedita eius in temporibus, neque enim ratione amet quis
-    vero tempore sunt esse provident dolorem voluptates quam quia dolore! Rem,
-    aperiam nobis? Numquam libero quas culpa consectetur illum! Dignissimos modi
-    explicabo eveniet quidem quae quibusdam distinctio aliquid tempora vel
-    officia ducimus quis et veritatis dolorem, commodi repellat ipsa, eius velit
-    voluptate dolore esse asperiores hic sunt. Repellendus voluptatibus quam
-    consectetur amet accusantium, dolorum sapiente quae, quod eius eligendi
-    fugit! Non distinctio tempora possimus quae, nemo perspiciatis doloribus
-    facilis. Facilis accusamus corrupti illo nobis voluptatem, repellat
-    reiciendis doloremque, sapiente eaque est deleniti iusto nam. Quis quam
-    ipsum nesciunt beatae esse. Libero, facilis ad illo est aspernatur amet
-    rerum nobis alias labore nulla veritatis veniam perferendis nemo ducimus
-    quidem voluptate quam dolores sapiente aperiam maiores quo, magni dolorum!
-    Tenetur facere qui nisi placeat aut eius laboriosam ab voluptates nesciunt
-    dignissimos consectetur distinctio nihil, ducimus unde provident ad possimus
-    repudiandae cupiditate necessitatibus! Aliquid minus quas, voluptates fugiat
-  </p>
+<div *ngIf="news$ | async as news; else loading">
+  <img src="{{ news.imageUrl }}" alt="{{ news.title }}" />
+  <div class="post-page">
+    <h2 class="post-title">{{ news.title }}</h2>
+    <p class="post-content">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
+      nostrum vero ipsum at nihil ullam ipsam maxime atque corporis suscipit,
+      veniam explicabo quisquam cum voluptas ratione unde dignissimos nobis
+      laudantium! Repellendus ut aspernatur eum in placeat magnam quisquam
+      accusamus laborum at fuga, quibusdam ipsa. Illo suscipit harum quos
+      architecto quaerat. Lorem ipsum dolor, sit amet consectetur adipisicing
+      elit. Distinctio blanditiis eveniet eius, voluptatibus optio nihil
+      asperiores dolorum eos suscipit sapiente facere exercitationem explicabo
+      ipsum, dolorem atque commodi vero facilis molestias id corrupti, molestiae
+      a. Laboriosam distinctio sequi, dolorum illum quasi vel accusamus eius
+      corrupti necessitatibus quod incidunt non minus voluptatem inventore,
+      tempora fuga ullam voluptatum quibusdam omnis. Molestiae dolore doloribus
+      consequuntur corrupti ullam, illo dolorum officia incidunt ipsam quam
+      quisquam quidem earum cupiditate vel, ratione hic! Beatae aut aliquid
+      ducimus! Recusandae eius tempore quasi hic maiores pariatur illum, nihil
+      commodi inventore, et, possimus aperiam ad aliquid? Sed inventore
+      voluptatum quam?Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+      Eum nostrum laboriosam odio pariatur, reiciendis, ratione alias amet
+      facilis fuga placeat provident suscipit deleniti cumque odit officiis!
+      Provident accusamus sed vitae, qui deleniti quasi possimus voluptatem
+      adipisci officia, iure aliquam autem itaque deserunt fugit. Hic dolorem,
+      vero ipsa vitae reiciendis alias eum. Voluptates nulla ex vitae
+      repudiandae asperiores qui voluptate sed? Eligendi aut esse eum animi
+    </p>
+  </div>
 </div>
 <div class="post-link">
   <a href="/" class="post-link"
     ><mat-icon class="arrow-icon">arrow_back</mat-icon>Back to homepage
   </a>
 </div>
+
+<ng-template #loading>
+  <p>Loading..</p>
+</ng-template>

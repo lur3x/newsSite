@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 import { News } from '../components/interface';
 
 @Injectable({
@@ -12,6 +11,17 @@ export class NewsService {
   getNews() {
     return this.http.get<News[]>(
       `https://api.spaceflightnewsapi.net/v3/articles`
+    );
+  }
+  getNewsById(id: string) {
+    return this.http.get<News>(
+      `https://api.spaceflightnewsapi.net/v3/articles/${id}`
+    );
+  }
+
+  searchNewsByTitle(str: string) {
+    return this.http.get<News[]>(
+      `https://api.spaceflightnewsapi.net/v3/articles?title_contains=${str}`
     );
   }
 }

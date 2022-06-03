@@ -2,12 +2,14 @@
   display: flex;
   flex-direction: column;
 }
-.search-input mat-icon {
+
+.search-btn {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  margin-top: 0.9rem;
-  margin-left: 1.5rem;
+  margin-top: .1rem;
+  background-color: #ffffff;
+  padding: 0.5rem .7rem;
+  border-radius: 5px;
+  border: none;
 }
 .card {
   font-family: "Montserrat";

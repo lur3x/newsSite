@@ -1,8 +1,16 @@
 <div class="search">
   <p class="text">Filter by keywords</p>
   <div class="search-input">
-    <mat-icon>search</mat-icon>
-    <input type="text" class="text-input" placeholder="Type to search" />
+    <button class="search-btn" (click)="search(searchStr)">
+      <mat-icon>search</mat-icon>
+    </button>
+
+    <input
+      type="text"
+      class="text-input"
+      placeholder="Type to search"
+      [(ngModel)]="searchStr"
+    />
   </div>
 </div>
 <div>
@@ -10,7 +18,7 @@
   <hr />
 </div>
 <div class="grid-main">
-  <mat-card class="card" *ngFor="let post of posts; let i = index">
+  <mat-card class="card" *ngFor="let post of posts | searchPipe: searchStr">
     <img mat-card-image src="{{ post.imageUrl }}" alt="{{ post.title }}" />
     <mat-card-content>
       <div class="card-date">
@@ -19,12 +27,17 @@
           {{ post.publishedAt | date: "longDate" }}
         </p>
       </div>
-      <mat-card-title class="card-title"> {{ post.title }}</mat-card-title>
-      <p class="card-content">
-        {{ post.summary }}
-      </p>
+      <mat-card-title
+        class="card-title"
+        [innerHTML]="post.title | highlight: searchStr"
+      >
+      </mat-card-title>
+      <p
+        class="card-content"
+        [innerHTML]="post.summary | highlight: searchStr"
+      ></p>
       <div class="cards-link">
-        <a href="/post/1" class="card-link">Read more &#8594;</a>
+        <a href="/post/{{ post.id }}" class="card-link">Read more &#8594;</a>
       </div>
     </mat-card-content>
   </mat-card>

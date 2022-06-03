@@ -8,8 +8,16 @@ import { News } from '../interface';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
+  searchStr = '';
   posts: News[] = [];
   constructor(private news: NewsService) {}
+
+  search(str: string) {
+    return this.news.searchNewsByTitle(str).subscribe((results) => {
+      this.posts = results;
+    });
+  }
+
 
   ngOnInit() {
     this.news.getNews().subscribe((post: any) => {
